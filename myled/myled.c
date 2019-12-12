@@ -5,6 +5,7 @@
 #include <linux/device.h>
 #include <linux/uaccess.h>
 #include <linux/io.h>
+#include <linux/delay.h>
 
 //MODULE
 MODULE_AUTHOR("Masayuki Fujino");
@@ -26,10 +27,65 @@ static ssize_t led_write(struct file* filp, const char* buf, size_t count, loff_
 	
 	return -EFAULT;
 
-	if(c == '0')
+	if(c != '1' && c != '2' && c != '3' && c != '4') 
+	{
 		gpio_base[10] = 1 << 25;
-	else if (c == '1')
+	}
+
+	else  if (c == '1')
+	{
 		gpio_base[7] = 1 << 25;
+	        msleep(1000);
+	        gpio_base[10] = 1 << 25;
+		msleep(1000);
+        }
+	
+	else if (c == '2')
+	{
+		gpio_base[7] = 1 << 25;
+		msleep(1000);
+		gpio_base[10] = 1 << 25;
+		msleep(1000);
+		gpio_base[7] = 1 << 25;
+		msleep(1000);
+		gpio_base[10] = 1 << 25;
+	}
+
+        else if(c == '3')
+        {
+          gpio_base[7] = 1 << 25;
+          msleep(1000);
+          gpio_base[10] = 1 << 25;
+          msleep(1000);
+          gpio_base[7] = 1 << 25;
+          msleep(1000);
+          gpio_base[10] = 1 << 25;
+          msleep(1000);
+          gpio_base[7] = 1 << 25;
+          msleep(1000);
+          gpio_base[10] = 1 << 25;
+        }
+
+        else if(c == '4')
+        { 
+          gpio_base[7] = 1 << 25;
+          msleep(1000);
+          gpio_base[10] = 1 << 25;
+          msleep(1000);
+          gpio_base[7] = 1 << 25;
+          msleep(1000);
+          gpio_base[10] = 1 << 25;
+          msleep(1000);
+          gpio_base[7] = 1 << 25;
+          msleep(1000);
+          gpio_base[10] = 1 << 25;
+          msleep(1000);
+          gpio_base[7] = 1 << 25;
+          msleep(1000);
+          gpio_base[10] = 1 << 25;
+        }
+
+
 
 	printk(KERN_INFO "receive %c\n", c);
 	return 1;
@@ -88,4 +144,3 @@ static void __exit cleanup_mod(void) //後始末
 
 module_init(init_mod);  //マクロで関数を登録
 module_exit(cleanup_mod); //同上
-

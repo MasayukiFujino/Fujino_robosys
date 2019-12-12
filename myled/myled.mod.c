@@ -39,6 +39,7 @@ __attribute__((section("__versions"))) = {
 	{ 0x2e5810c6, "__aeabi_unwind_cpp_pr1" },
 	{ 0xdb7305a1, "__stack_chk_fail" },
 	{ 0x7c32d0f0, "printk" },
+	{ 0xf9a482f9, "msleep" },
 	{ 0x28cc25db, "arm_copy_from_user" },
 	{ 0x8f678b07, "__stack_chk_guard" },
 	{ 0xb1ad28e0, "__gnu_mcount_nc" },
@@ -50,4 +51,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "FDBF21193B4E822B1C1CE82");
+MODULE_INFO(srcversion, "F4970331C1E298854CDDC64");
