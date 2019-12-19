@@ -16,14 +16,14 @@ Fujino_robosys/myled/myled.c
 
 # 操作方法
 
-$ make
-$ sudo insmod myled.ko
-$ sudo mknod /dev/myled0 c 240 0
-$ sudo chmod 666 /dev/myled0
-$ echo 1 > /dev/myled0
-$ echo 2 > /dev/myled0
-$ echo 3 > /dev/myled0
-$ echo 4 > /dev/myled0
+$ make <br>
+$ sudo insmod myled.ko <br>
+$ sudo mknod /dev/myled0 c 240 0 <br>
+$ sudo chmod 666 /dev/myled0 <br>
+$ echo 1 > /dev/myled0 <br>
+$ echo 2 > /dev/myled0 <br>
+$ echo 3 > /dev/myled0 <br>
+$ echo 4 > /dev/myled0 <br>
 
 # 動画URL
 
